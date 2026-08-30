@@ -1,7 +1,7 @@
-package com.willyan.expense_tracker.service;
+package com.expensetracker.user.service;
 
-import com.willyan.expense_tracker.model.User;
-import com.willyan.expense_tracker.repository.UserRepository;
+import com.expensetracker.user.model.User;
+import com.expensetracker.user.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

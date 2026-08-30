@@ -1,6 +1,6 @@
-package com.willyan.expense_tracker.repository;
+package com.expensetracker.user.repository;
 
-import com.willyan.expense_tracker.model.User;
+import com.expensetracker.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

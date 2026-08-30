@@ -1,7 +1,7 @@
-package com.willyan.expense_tracker.controller;
+package com.expensetracker.user.controller;
 
-import com.willyan.expense_tracker.model.User;
-import com.willyan.expense_tracker.service.UserService;
+import com.expensetracker.user.model.User;
+import com.expensetracker.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +28,6 @@ public class UserController {
         return ResponseEntity.ok(users);
     }
 
-    // ADICIONE ESTE BLOCO ABAIXO:
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteUser(@PathVariable Long id) {
         userService.deleteUser(id);

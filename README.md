@@ -1,57 +1,67 @@
 # Expense Tracker API
 
-> API RESTful desenvolvida em Java com Spring Boot, estruturada com foco em arquitetura limpa, manutenibilidade e alta escalabilidade para sistemas backend.
+> RESTful API developed in Java with Spring Boot, structured with a focus on clean architecture, maintainability, and high scalability for backend systems.
 
 ---
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Tech Stack
 
-| Componente | Tecnologia / Versão | Propósito |
+| Component | Technology / Version | Purpose |
 | :--- | :--- | :--- |
-| **Linguagem** | Java 17 | Base orientada a objetos e recursos modernos |
-| **Framework** | Spring Boot 3.2+ | Injeção de dependências e ecossistema web |
-| **Persistência** | Spring Data JPA / Hibernate | ORM e mapeamento relacional |
-| **Banco de Dados** | H2 Database | Armazenamento relacional em memória para testes |
-| **Connection Pool** | HikariCP | Gerenciamento de conexões de alta performance |
-| **Utilitários** | Lombok | Redução de código *boilerplate* |
+| **Language** | Java 17 | Object-oriented foundation and modern features |
+| **Framework** | Spring Boot 3.2+ | Dependency injection and web ecosystem |
+| **Persistence** | Spring Data JPA / Hibernate | ORM and relational mapping |
+| **Database** | H2 Database | In-memory relational storage for testing |
+| **Connection Pool** | HikariCP | High-performance connection management |
+| **Utilities** | Lombok | Boilerplate code reduction |
 
 ---
 
-## 🏛️ Arquitetura e Decisões de Engenharia
+## 🏛️ Architecture and Engineering Decisions
 
-O projeto foi concebido simulando um **Monolito Modular**, garantindo baixo acoplamento, alta coesão e divisão clara de responsabilidades:
+The project was conceived simulating a **Modular Monolith**, ensuring low coupling, high cohesion, and a clear division of responsibilities:
 
 ```text
-src/main/java/com/willyan/expense_tracker/
-├── controller/    # Camada de Apresentação (Contratos REST / DTOs)
-├── service/       # Camada de Regras de Negócio e Transacionalidade
-├── repository/    # Camada de Acesso a Dados (Otimização de Queries)
-└── model/         # Entidades de Domínio e Mapeamento Relacional
+src/main/java/com/expensetracker/
+├── user/       # User Domain Module (Controller, Service, Repository, Model)
+├── category/   # Category Domain Module (Controller, Service, Repository, Model)
+└── expense/    # Expense Domain Module (Controller, Service, Repository, Model)
 ```
-🔒 Considerações de Engenharia e Production-Ready
-Prevenção de N+1: Mapeamentos relacionais (@ManyToOne / @OneToMany) planejados para uso de Entity Graphs ou JOIN FETCH em consultas complexas.
+🔒 Engineering Considerations and Production-Ready
+N+1 Prevention: Relational mappings (@ManyToOne / @OneToMany) structured with lazy loading and JSON serialization control to prevent infinite recursion and performance bottlenecks.
 
-Connection Pool: Gerenciamento de conexões eficientes via HikariCP nativo do Spring.
+Connection Pool: Efficient connection management via Spring's native HikariCP.
 
-Tratamento de Exceções: Padronização de respostas HTTP para falhas de validação e regras de negócio.
+Exception Handling: Standardized HTTP responses for validation failures and business rule violations.
 
-## ⚙️ Como Executar o Projeto
-1 - Clone o repositório:
+## ⚙️ How to Run the Project
+1 - Clone the repository:
 > git clone https://github.com/WillyanMata/expense-tracker.git
 
-2 - Acesse a pasta do projeto:
+2 - Access the project folder:
 > cd expense-tracker
 
-3 - Execute via Maven Wrapper:
+3 - Run via Maven Wrapper:
 > ./mvnw spring-boot:run
 
-## 📡 Endpoints da API
+## 📡 API Endpoints
 
-POST ```/api/users``` — Cadastra um novo usuário.
+POST ```/api/users``` — Register a new user.
 
-GET ```/api/users``` — Lista todos os usuários cadastrados.
+GET ```/api/users``` — List all registered users.
 
-DELETE ```/api/users/{id}``` — Remove um usuário pelo identificador único.
+DELETE ```/api/users/{id}``` — Remove a user by unique identifier.
 
-## 👨‍💻 Autor
-Desenvolvido por **Willyan Da Mata.**
+POST ```/api/categories``` — Register a new expense category.
+
+GET ```/api/categories``` — List all categories.
+
+POST ```/api/expenses``` — Register a new expense transaction.
+
+GET ```/api/expenses/filter``` — Filter expenses by user and date range.
+
+GET ```/api/expenses/summary``` — Get total sum of expenses by user and date range.
+
+## 👨‍💻 Author
+
+Developed by **Willyan Da Mata.**

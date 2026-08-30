@@ -31,3 +31,15 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Custom / Local Testing ###
+requests.http
+
+### Operating System Files ###
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+### Environment Variables ###
+.env
+.env.local
